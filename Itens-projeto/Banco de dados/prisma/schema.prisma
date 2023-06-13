@@ -1,0 +1,93 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                Int                 @id @default(autoincrement())
+  name              String
+  email             String              @unique
+  password          String
+  age               Int?                @db.SmallInt
+  birth_date        DateTime?           @db.Date
+  avatar            String?             @db.LongText
+  created_at        DateTime            @default(now())
+  updatet_at        DateTime            @updatedAt
+  Address           Address[]
+  UserFavoritePosts UserFavoritePosts[]
+
+  @@map("users")
+}
+
+model Address {
+  id         Int      @id @default(autoincrement())
+  user       User     @relation(fields: [user_id], references: [id])
+  user_id    Int
+  city       City     @relation(fields: [city_id], references: [id])
+  street     String   @db.VarChar(100)
+  created_at DateTime @default(now())
+  updatet_at DateTime @updatedAt
+  city_id    Int
+
+  @@map("address")
+}
+
+model City {
+  id       Int       @id @default(autoincrement())
+  name     String    @db.VarChar(60)
+  state    State     @relation(fields: [state_id], references: [id])
+  state_id Int
+  address  Address[]
+
+  @@map("cities")
+}
+
+model State {
+  id   Int    @id @default(autoincrement())
+  name String @db.VarChar(40)
+  uf   String @db.Char(2)
+  City City[]
+
+  @@map("states")
+}
+
+model UsefullyPhone {
+  id          Int    @id @default(autoincrement())
+  number      String @db.VarChar(14)
+  title       String @db.VarChar(40)
+  description String @db.VarChar(100)
+
+  @@map("usefully_phones")
+}
+
+model Post {
+  id                Int                 @id @default(autoincrement())
+  banner            String              @db.LongText
+  title             String              @db.VarChar(255)
+  resume            String              @db.Text
+  description       String              @db.VarChar(255)
+  short_description String              @db.Text
+  type              String              @db.VarChar(10)
+  category          String              @db.VarChar(15)
+  created_at        DateTime            @default(now())
+  updatet_at        DateTime            @updatedAt
+  url               String              @db.MediumText
+  UserFavoritePosts UserFavoritePosts[]
+
+  @@map("posts")
+}
+
+model UserFavoritePosts {
+  id         Int      @id @default(autoincrement())
+  user       User     @relation(fields: [user_id], references: [id])
+  user_id    Int
+  post       Post     @relation(fields: [post_id], references: [id])
+  post_id    Int
+  created_at DateTime @default(now())
+
+  @@map("user_favorite_posts")
+}

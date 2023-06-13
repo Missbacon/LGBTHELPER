@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">LGBTH</string>
+    <string name="main_card_news">Main Card News</string>
+    <string name="home_politicts_option_label">Política</string>
+    <string name="home_works_option_label">Trabalho</string>
+    <string name="home_ong_option_label">ONGs</string>
+    <string name="home_podcast_option_label">Podcasts</string>
+    <string name="home_main_logo">Logo Tema LGBT Helper</string>
+    <string name="home_nav_menu">Home</string>
+    <string name="localization_nav_menu">Localização</string>
+    <string name="favorite_nav_menu">Favoritos</string>
+    <string name="user_nav_menu">Usuário</string>
+    <string name="novo_cadastro">Novo Cadastro</string>
+    <string name="lgbt_help_logo_definition">Lgbt help logo</string>
+    <string name="edittext_name_hint">Nome</string>
+    <string name="edittext_email_hint">Email</string>
+    <string name="edittext_password_hint">Senha</string>
+    <string name="pwd_confirmation">Confirmar senha</string>
+    <string name="btn_save">Salvar</string>
+    <string name="btn_cancel">Cancelar</string>
+    <string name="register">Registrar-se</string>
+    <string name="login">Login</string>
+    <string name="back">Voltar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="profile_config_label">Meu de Perfil</string>
+    <string name="usefully_phones">Telefones Úteis</string>
+    <string name="logout">logout</string>
+    <string name="my_favorites_title">Meus Favoritos</string>
+    <string name="non_logged_user">Você precisa se regisrar para poder acessar seus favoritos!</string>
+    <string name="keep_reeding">Continuar Lendo</string>
+</resources>
